@@ -31,7 +31,7 @@ export default function LoginPage() {
         <div className="flex items-center gap-3 mb-4">
           <div className="w-9 h-9 rounded-xl" style={{ background: "var(--color-primary)" }} />
           <div>
-            <div className="font-semibold">andflow CRM</div>
+            <div className="font-semibold">Peypa CRM</div>
             <div className="text-xs text-[var(--muted)]">Inicia sesión para continuar</div>
           </div>
         </div>
