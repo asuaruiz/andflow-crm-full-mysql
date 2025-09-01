@@ -1,0 +1,23 @@
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: andflow-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: andflow
+      MYSQL_USER: andflow
+      MYSQL_PASSWORD: andflowpass
+    ports:
+      - "3306:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-u", "root", "-prootpass"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    volumes:
+      - andflow_mysql:/var/lib/mysql
+
+volumes:
+  andflow_mysql:

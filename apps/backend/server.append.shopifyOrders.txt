@@ -1,0 +1,3 @@
+// --- Shopify Orders routes ---
+import { shopifyOrdersRouter } from './shopifyOrdersRoutes.js';
+app.use('/api/shopify/orders', shopifyOrdersRouter());

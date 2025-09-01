@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<EnvioDTE xmlns="http://www.sii.cl/SiiDte" version="1.0">
+  <SetDTE ID="SetDTE_1">
+    <Caratula version="1.0">
+      <!-- Deben coincidir con tu .env -->
+      <RutEmisor>77929056-5</RutEmisor>       <!-- RUT EMPRESA -->
+      <RutEnvia>16282161-K</RutEnvia>          <!-- RUT TITULAR CERTIFICADO -->
+      <RutReceptor>60803000-K</RutReceptor>    <!-- SIEMPRE el SII -->
+      <FchResol>2020-01-01</FchResol>
+      <NroResol>0</NroResol>
+      <TmstFirmaEnv>2025-08-26T23:59:00</TmstFirmaEnv>
+      <SubTotDTE>
+        <TpoDTE>39</TpoDTE>
+        <NroDTE>1</NroDTE>
+      </SubTotDTE>
+    </Caratula>
+
+    <DTE version="1.0">
+      <Documento ID="F39T1">
+        <Encabezado>
+          <IdDoc>
+            <TipoDTE>39</TipoDTE>
+            <Folio>1</Folio>
+            <FchEmis>2025-08-26</FchEmis>
+            <IndServicio>3</IndServicio>
+          </IdDoc>
+          <Emisor>
+            <RUTEmisor>77929056-5</RUTEmisor>   <!-- Debe matchear RutEmisor -->
+            <RznSoc>ANDFLOW SPA</RznSoc>
+            <GiroEmis>VENTA</GiroEmis>
+            <Acteco>749900</Acteco>
+            <DirOrigen>SANTIAGO</DirOrigen>
+            <CmnaOrigen>SANTIAGO</CmnaOrigen>
+          </Emisor>
+          <Receptor>
+            <RUTRecep>66666666-6</RUTRecep>
+            <RznSocRecep>CLIENTE PRUEBA</RznSocRecep>
+            <GiroRecep>PRUEBAS</GiroRecep>
+            <DirRecep>SANTIAGO</DirRecep>
+            <CmnaRecep>SANTIAGO</CmnaRecep>
+          </Receptor>
+          <Totales>
+            <MntNeto>1000</MntNeto>
+            <IVA>190</IVA>
+            <MntTotal>1190</MntTotal>
+          </Totales>
+        </Encabezado>
+        <Detalle>
+          <NroLinDet>1</NroLinDet>
+          <NmbItem>ITEM PRUEBA</NmbItem>
+          <QtyItem>1</QtyItem>
+          <PrcItem>1000</PrcItem>
+          <MontoItem>1000</MontoItem>
+        </Detalle>
+
+        <!-- TED falso, solo para pasar tamaño/estructura en CERT -->
+        <TED version="1.0">
+          <DD>ESTO-NO-ES-UN-TED-REAL—SOLO-PARA-PASAR-TAMAÑO</DD>
+          <FRMT algoritmo="SHA1withRSA">AAAA</FRMT>
+        </TED>
+        <TmstFirma>2025-08-26T23:59:00</TmstFirma>
+      </Documento>
+    </DTE>
+
+    <!-- Firma del SetDTE falsa (esto es solo para pruebas de tamaño) -->
+    <Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+      <SignedInfo>
+        <CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+        <SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+        <Reference URI="#SetDTE_1">
+          <Transforms>
+            <Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
+            <Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+          </Transforms>
+          <DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+          <DigestValue>AAAAAAAAAAAAAAAAAAAAAA==</DigestValue>
+        </Reference>
+      </SignedInfo>
+      <SignatureValue>BBBBBBBBBBBBBBBBBBBBBBBBBBBB</SignatureValue>
+      <KeyInfo>
+        <KeyValue>
+          <RSAKeyValue>
+            <Modulus>CC</Modulus>
+            <Exponent>Aw==</Exponent>
+          </RSAKeyValue>
+        </KeyValue>
+      </KeyInfo>
+    </Signature>
+  </SetDTE>
+</EnvioDTE>

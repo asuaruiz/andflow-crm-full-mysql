@@ -1,0 +1,25 @@
+{
+  "name": "andflow-crm",
+  "private": true,
+  "workspaces": [
+    "apps/frontend",
+    "apps/backend"
+  ],
+  "scripts": {
+    "predev": "docker compose up -d || echo \"(sin docker) continuando...\"",
+    "dev": "concurrently -n fe,be -c auto \"npm:dev -w apps/frontend\" \"npm:dev -w apps/backend\"",
+    "build": "npm run build -w apps/frontend && npm run build -w apps/backend",
+    "start": "npm run start -w apps/backend",
+    "infra:up": "docker compose up -d",
+    "infra:down": "docker compose down -v"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.1"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^2.0.2",
+    "xlsx": "^0.18.5"
+  }
+}
